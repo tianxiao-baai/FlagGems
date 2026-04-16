@@ -5,7 +5,7 @@ import triton
 import triton.language as tl
 
 from ..utils.pointwise_dynamic import pointwise_dynamic
-from .all import all
+from .all import all_impl
 
 logger = logging.getLogger("flag_gems").getChild(__name__.lstrip("."))
 
@@ -85,4 +85,4 @@ def allclose(
     equal_nan: bool = False,
 ) -> bool:
     logger.debug("GEMS_CAMBRICON ALLCLOSE")
-    return all(isclose(A, B, rtol, atol, equal_nan)).item()
+    return all_impl(isclose(A, B, rtol, atol, equal_nan)).item()

@@ -1,7 +1,7 @@
 from .abs import abs, abs_
 from .add import add, add_
 from .addmm import addmm
-from .all import all, all_dim, all_dims
+from .all import all_impl, all_dim, all_dims
 from .amax import amax
 from .angle import angle
 from .any import any, any_dim, any_dims
@@ -172,7 +172,7 @@ __all__ = [
     "add",
     "add_",
     "addmm",
-    "all",
+    "all_impl",
     "all_dim",
     "all_dims",
     "allclose",

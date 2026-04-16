@@ -4,7 +4,7 @@ import torch
 import triton
 import triton.language as tl
 
-from flag_gems.ops.all import all
+from flag_gems.ops.all import all_impl
 from flag_gems.utils import tl_extra_shim
 
 from ..utils.pointwise_dynamic import pointwise_dynamic
@@ -89,4 +89,4 @@ def allclose(
     equal_nan: bool = False,
 ) -> bool:
     logger.debug("GEMS ALLCLOSE")
-    return all(isclose(A, B, rtol, atol, equal_nan)).item()
+    return all_impl(isclose(A, B, rtol, atol, equal_nan)).item()

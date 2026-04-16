@@ -6,7 +6,7 @@ from .addcmul import addcmul
 from .addmm import addmm, addmm_out
 from .addmv import addmv, addmv_out
 from .addr import addr
-from .all import all, all_dim, all_dims
+from .all import all_impl, all_dim, all_dims
 from .amax import amax
 from .angle import angle
 from .any import any, any_dim, any_dims
@@ -246,7 +246,7 @@ __all__ = [
     "addmv",
     "addmv_out",
     "addr",
-    "all",
+    "all_impl",
     "all_dim",
     "all_dims",
     "allclose",

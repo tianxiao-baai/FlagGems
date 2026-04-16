@@ -4,7 +4,7 @@ from .add import add, add_
 from .addcdiv import addcdiv
 from .addcmul import addcmul
 from .addmm import addmm, addmm_out
-from .all import all, all_dim, all_dims
+from .all import all_impl, all_dim, all_dims
 from .amax import amax
 from .any import any, any_dim, any_dims
 from .arange import arange, arange_start
@@ -193,7 +193,7 @@ __all__ = [
     "addcmul",
     "addmm",
     "addmm_out",
-    "all",
+    "all_impl",
     "all_dim",
     "all_dims",
     "allclose",

@@ -1,4 +1,4 @@
-from .all import all, all_dim, all_dims
+from .all import all_impl, all_dim, all_dims
 from .any import any, any_dim, any_dims
 from .attention import (
     ScaleDotProductAttention,
@@ -40,7 +40,7 @@ from .upsample_nearest2d import upsample_nearest2d
 __all__ = [
     "_unique2",
     "ScaleDotProductAttention",
-    "all",
+    "all_impl",
     "all_dim",
     "all_dims",
     "allclose",

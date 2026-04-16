@@ -82,7 +82,7 @@ def all_kernel_2(mid, out, MID_SIZE, BLOCK_MID: tl.constexpr):
     tl.store(out, all_val)
 
 
-def all(inp):
+def all_impl(inp):
     logger.debug("GEMS_HYGON ALL")
     n_elements = inp.numel()
     block_size = triton.next_power_of_2(math.ceil(math.sqrt(n_elements)))
@@ -103,7 +103,7 @@ def all_dim(inp, dim=None, keepdim=False):
     logger.debug("GEMS_HYGON ALL_DIM")
     shape = list(inp.shape)
     if dim is None:
-        out = all(inp)
+        out = all_impl(inp)
         if keepdim:
             out = torch.reshape(out, [1] * inp.ndim)
     else:

@@ -6,7 +6,7 @@ import triton.language as tl
 
 from flag_gems.utils import pointwise_dynamic, tl_extra_shim
 
-from .all import all
+from .all import all_impl
 
 logger = logging.getLogger(__name__)
 try:
@@ -81,4 +81,4 @@ def allclose(
     equal_nan: bool = False,
 ) -> bool:
     logger.debug("GEMS ALLCLOSE")
-    return all(isclose(A, B, rtol, atol, equal_nan)).item()
+    return all_impl(isclose(A, B, rtol, atol, equal_nan)).item()

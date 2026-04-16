@@ -8,7 +8,7 @@ import triton.language as tl
 from flag_gems.utils import tl_extra_shim
 
 from ..utils.pointwise_dynamic import pointwise_dynamic
-from .all import all
+from .all import all_impl
 
 logger = logging.getLogger("flag_gems").getChild(__name__.lstrip("."))
 _isfinited = tl_extra_shim.isfinited
@@ -85,4 +85,4 @@ def allclose(
     equal_nan: bool = False,
 ) -> bool:
     logger.debug("GEMS ALLCLOSE")
-    return all(isclose(A, B, rtol, atol, equal_nan)).item()
+    return all_impl(isclose(A, B, rtol, atol, equal_nan)).item()

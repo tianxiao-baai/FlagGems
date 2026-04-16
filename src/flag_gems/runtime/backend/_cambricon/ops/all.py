@@ -83,7 +83,7 @@ def all_kernel_1(
     tl.atomic_and(out, _tmp[0].to(tl.int32))
 
 
-def all(inp):
+def all_impl(inp):
     logger.debug("GEMS_CAMBRICON ALL")
     M = inp.numel()
     grid = lambda meta: (min(triton.cdiv(M, meta["BLOCK_SIZE"]), TOTAL_CORE_NUM),)
@@ -100,7 +100,7 @@ def all_dim(inp, dim=None, keepdim=False):
     logger.debug("GEMS_CAMBRICON ALL DIM")
     shape = list(inp.shape)
     if dim is None:
-        out = all(inp)
+        out = all_impl(inp)
         if keepdim:
             out = torch.reshape(out, [1] * inp.ndim)
     else:

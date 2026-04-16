@@ -1,6 +1,6 @@
 from torch_musa import current_device, get_device_capability
 
-from .all import all, all_dim, all_dims
+from .all import all_impl, all_dim, all_dims
 from .amax import amax
 from .any import any, any_dim, any_dims
 from .arange import arange, arange_start
@@ -42,7 +42,7 @@ from .zeros_like import zeros_like
 
 __all__ = [
     "amax",
-    "all",
+    "all_impl",
     "all_dim",
     "all_dims",
     "any",
