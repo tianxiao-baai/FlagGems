@@ -27,6 +27,8 @@ from benchmark.consts import (
     model_shapes,
 )
 
+from . import consts
+
 try:
     from vllm.model_executor.layers.quantization.utils.fp8_utils import (
         w8a8_triton_block_scaled_mm as vllm_w8a8_triton_block_scaled_mm,
@@ -927,7 +929,7 @@ class ParallelW8A8BlockFP8MatmulBenchmark(
         return BlasBenchmark.set_more_shapes(self)
 
     def should_forward_parallel_dtype(self, dtype_name):
-        if Config.user_desired_dtypes is None and dtype_name == "fp8":
+        if Config.user_desired_dtypes is None and dtype_name.startswith("fp8"):
             return False
         return True
 
@@ -1252,7 +1254,7 @@ def test_perf_w8a8_block_fp8_matmul():
     bench = ParallelW8A8BlockFP8MatmulBenchmark(
         op_name="w8a8_block_fp8_matmul",
         torch_op=vllm_w8a8_triton_block_scaled_mm,
-        dtypes=["fp8"],
+        dtypes=consts.FP8_DTYPES,
     )
     bench.set_gems(flag_gems.w8a8_block_fp8_matmul)
     bench.run()
@@ -1270,7 +1272,7 @@ def test_perf_w8a8_block_fp8_matmul_deepgemm():
     bench = ParallelW8A8BlockFP8DeepGemmBenchmark(
         op_name="w8a8_block_fp8_matmul_deepgemm",
         torch_op=_deepgemm_block_scaled_mm,
-        dtypes=["fp8"],
+        dtypes=consts.FP8_DTYPES,
         output_dtype=torch.bfloat16,
     )
     bench.set_gems(flag_gems.w8a8_block_fp8_matmul)
