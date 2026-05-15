@@ -30,6 +30,7 @@ W8A8_BLOCK_FP8_MNK_SHAPES = [
 
 W8A8_BLOCK_FP8_BLOCK_SIZE = [128, 128]
 
+
 def rand_fp8_tensor(shape, device, dtype):
     finfo = torch.finfo(dtype)
     return (
