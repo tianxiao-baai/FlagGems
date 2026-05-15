@@ -48,31 +48,29 @@ def test_tril():
 def test_tril_extreme_diagonal():
     bench = base.GenericBenchmarkExcluse1D(
         input_fn=_tril_extreme_diagonal_input_fn,
-        op_name="tril_extreme_diagonal",
+        op_name="tril",
         torch_op=torch.tril,
         dtypes=consts.FLOAT_DTYPES,
     )
     bench.run()
 
 
-@pytest.mark.tril
 @pytest.mark.tril_out
 def test_tril_out_transposed():
     bench = base.GenericBenchmarkExcluse1D(
         input_fn=_tril_out_transposed_input_fn,
-        op_name="tril_out_transposed",
+        op_name="tril_out",
         torch_op=torch.tril,
         dtypes=consts.FLOAT_DTYPES,
     )
     bench.run()
 
 
-@pytest.mark.tril
 @pytest.mark.tril_out
 def test_tril_out_sliced():
     bench = base.GenericBenchmarkExcluse1D(
         input_fn=_tril_out_sliced_input_fn,
-        op_name="tril_out_sliced",
+        op_name="tril_out",
         torch_op=torch.tril,
         dtypes=consts.FLOAT_DTYPES,
     )
