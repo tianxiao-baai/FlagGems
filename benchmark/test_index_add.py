@@ -4,7 +4,7 @@ import torch
 import flag_gems
 from flag_gems.utils import shape_utils
 
-from . import base, consts
+from . import base
 
 
 class TensorSelectBenchmark(base.GenericBenchmark2DOnly):
