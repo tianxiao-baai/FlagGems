@@ -65,7 +65,7 @@ def test_gather_backward():
         torch_op=torch.gather,
         input_fn=gather_input_fn,
         get_gbps=_get_gbps,
-        dtypes=[torch.float32, torch.float16],
+        dtypes=consts.FLOAT_DTYPES,
         is_backward=True,
     )
 
