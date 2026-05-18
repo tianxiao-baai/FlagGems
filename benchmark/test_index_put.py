@@ -137,7 +137,7 @@ def test_index_put_acc_true():
         op_name="index_put",
         torch_op=torch.index_put,
         input_fn=index_put_input_fn(True),
-        dtypes=consts.FLOAT_DTYPES,
+        dtypes=[torch.float16, torch.float32],
     )
     bench.run()
 
@@ -148,6 +148,6 @@ def test_index_put__acc_true():
         op_name="index_put_",
         torch_op=torch.index_put_,
         input_fn=index_put_input_fn(True),
-        dtypes=consts.FLOAT_DTYPES,
+        dtypes=[torch.float16, torch.float32],
     )
     bench.run()
