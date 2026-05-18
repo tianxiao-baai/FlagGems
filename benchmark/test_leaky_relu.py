@@ -23,3 +23,13 @@ def test_leaky_relu_inplace():
         is_inplace=True,
     )
     bench.run()
+
+
+@pytest.mark.leaky_relu_out
+def test_leaky_relu_out():
+    bench = base.UnaryPointwiseBenchmark(
+        op_name="leaky_relu_out",
+        torch_op=torch.nn.functional.leaky_relu,
+        dtypes=consts.FLOAT_DTYPES,
+    )
+    bench.run()
